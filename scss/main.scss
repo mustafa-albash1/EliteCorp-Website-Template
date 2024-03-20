@@ -1,0 +1,751 @@
+/* 
+Theme Designed by: Mustafa albash
+Theme Name: Elite Corp
+*/
+
+$mainColor: #08526d; 
+$secondColor: #ed1d24;
+$secondBackColor: #f7f7f7;
+$fontColorPar: #8B999F;
+$paddingTop: 100px 0;
+
+%btn-style {
+    background-color: $secondColor;
+    border: 1px solid $secondColor;
+    color: #ffffff;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    @extend %transition;
+    &:hover {
+        background-color: $mainColor;
+        border:1px solid $mainColor;
+        @extend %transition;
+    }
+}
+
+%h2-style {
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+%paragraph-style {
+    margin: 0 auto 25px;
+    width: 70%;
+    line-height: 2;
+    letter-spacing: 2px;
+    font-size: 18px;
+    text-align: center;
+}
+
+%transition {
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+}
+
+%overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 2;
+}
+
+%background-cover {
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+%price {
+    width: 100%;
+    padding-bottom: 10px;
+    margin: 40px 0px;
+    font-size: 50px;
+}
+
+%trans-table-price {
+    -webkit-transition: all 0.3s ea;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    
+    -webkit-transform: translate(0, -10px);
+    -moz-transform: translate(0, -10px);
+    -o-transform: translate(0, -10px);
+    transform: translate(0, -10px);
+}
+
+
+// Start Upper Bar
+.upper-bar {
+    background-color: $mainColor;
+    color: #ddd;
+    font-size: 14px;
+    div {
+        @media (max-width: 992px) {
+            margin: 0px auto;
+        }
+    }
+    .link {
+        padding-top: 3px;
+        a {
+            color: #ffffff;
+            float: left;
+            &:hover{
+                text-decoration: none;
+                opacity: .8;
+            }
+        }
+    }
+    p {
+        float: left;
+        margin: 3px 15px 0 0;
+        font-size: 12px;
+    }
+    .get-quote-btn {
+        float: right;
+        border: 2px solid $secondColor;
+        padding: 3px 15px;
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 18px;
+        @extend %transition;
+        &:hover {
+            background-color: $secondColor;
+            color: #ffffff; 
+            @extend %transition;
+        }
+    }
+}
+// End Upper Bar
+
+
+// Start NavBar 
+.navbar {
+    .navbar-brand {
+        span {
+          font-size: 40px;  
+          &:first-child {
+                color:$mainColor;
+                font-weight: 600;
+          }    
+          &:last-child {
+                color: $secondColor;
+                font-weight: 350;
+          }
+        }
+    }
+    .navbar-nav { 
+        .nav-link {
+            text-transform: uppercase;
+            color: $mainColor;
+            font-size: 15px;
+            margin-left: 15px;
+            @extend %transition;
+            &:hover {
+                color: $secondColor;
+                @extend %transition;
+            }
+        }
+        .active > .nav-link {
+            color: $secondColor;
+        }
+    }
+}
+// End NavBar
+
+
+// Start Slider
+.slide {
+    .overlay {
+        @extend %overlay;
+    }
+    .carousel-inner {
+        .slide-par {
+            position: absolute;
+            z-index: 3;
+            color: #ffffff;
+            font-size: 60px;
+            font-weight: 600; 
+            line-height: 1;
+            padding-left: 40px;
+            top: 120px;
+            @media (max-width: 768px) {
+                font-size: 40px;
+                text-align: center;
+                top: 150px;
+            }
+            @media (max-width: 576px) {
+                font-size: 25px;
+                width: 100%;
+            }
+            span {
+                background-color: $secondColor;
+                padding: 0px 10px 3px;   
+                @media (max-width: 768px) {
+                   margin: 5px 0;
+                }      
+            }
+        }
+        
+        .carousel-item {
+            @extend %background-cover;
+        }
+        
+        $slide-item: slide-one slide-two slide-three;
+        @each $slider in $slide-item {
+            .#{$slider} {
+                background-image: url("../image/slide/#{$slider}.jpg");
+            }
+        }
+    }
+    .carousel-indicators { 
+        li {
+            height: 12px;
+            width: 12px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -o-border-radius: 50%;
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid #ffffff;
+           
+            &:hover {
+                background-color: #ffffff;
+            }
+        } 
+        .active {
+             border: transparent;
+             background-color: #ffffff;
+        }
+         
+    }
+}
+// End Slider
+ 
+
+// Start Features
+
+.features {
+    padding: $paddingTop;
+    @media (max-width: 992px) {
+        padding: 50px 0;
+    }
+    i {
+        color: #ffffff;
+        background-color: $secondColor;
+        padding-top: 25px;
+        font-size: 20px;
+        width: 70px;
+        height: 70px;
+    }
+    h4 {
+        color: $mainColor;
+        padding-top: 7px;
+    }
+    p {
+        color: $fontColorPar; 
+    }
+}
+// End Features
+
+
+// Start Overview
+.overview {
+    background-color: #f0f5f7;
+    padding: $paddingTop;
+    @media (max-width: 992px) {
+        padding: 50px 0;
+    }
+    h2 {
+        @extend %h2-style;
+        @media (max-width: 992px) {
+            font-size: 30px;
+        }
+    }
+    p {
+      @extend %paragraph-style;
+      @media (max-width: 992px) {
+        width: 90%;
+        letter-spacing: 1;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+    }
+    button {
+        @extend %btn-style;
+    }
+}
+// End Overview
+
+
+// Start Featured Word
+.featured-work {
+    padding: $paddingTop;
+    @media (max-width: 992px) {
+        padding: 50px 0;
+    }
+    h2 {
+        @extend %h2-style;
+        text-transform: none;
+        @media (max-width: 992px) {
+            font-size: 30px;
+            padding-bottom: 10px;
+        }
+    }
+    p{
+        @extend %paragraph-style;
+        @media (max-width: 992px) {
+            width: 90%;
+            letter-spacing: 1;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+    }
+    ul {
+        margin-top: 70px;
+        li {
+            display: inline-block;
+            color: $mainColor;
+            border: 1px solid $fontColorPar;
+            cursor: pointer;
+            font-weight: 600;
+            padding: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            @extend %transition;    
+            &:hover {
+               color: $secondColor;
+               border: 1px solid $secondColor;
+           }
+        }
+        .active {
+            background-color: $secondColor;
+            color: #ffffff !important;
+            border: 1px solid $secondColor !important;
+        }
+    }
+    .feat-img{
+        margin-top: 50px;
+    }
+    .shuffle-imgs {
+        .row {
+            margin: 0px;
+            .img-box {
+                padding: 0px;
+                @extend %transition;
+            }
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+// End Featured Work
+
+
+// Start Latest post
+.latest-post {
+    margin-bottom: 100px;
+    @media (max-width: 992px) {
+        margin-bottom: 50px;
+    }
+    .title-post {
+        @extend %h2-style;
+        letter-spacing: 3px;
+        text-transform: none;
+        @media (max-width: 992px) {
+            font-size: 30px;
+            padding-bottom: 10px;
+        }
+    }
+    .par-post {
+        @extend %paragraph-style;
+        @media (max-width: 992px) {
+            width: 90%;
+            letter-spacing: 1;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+    }
+
+    .card {
+        border: 0;
+        @media (max-width: 992px) {
+            margin-bottom: 40px;
+        }
+        .card-body {
+            padding: 20px 0px 0px;
+            .card-title {
+                color: $mainColor;
+            }
+            .text-muted {
+                font-size: 14px;
+                font-weight: 400;
+            }
+            p {
+                color: rgb(98, 109, 114);
+                
+            }
+            a {
+                color: $secondColor;
+                font-weight: 500;
+
+            }
+        }
+    }
+}
+// End Lastest post
+
+
+// Start Testimonials
+.testimonials {
+    @extend %background-cover;
+    background-image: url('../image/testimonials/bg-testimonials.jpg');
+    position: relative;
+    .overlay {
+        @extend %overlay;
+    }
+    .slide {
+        z-index: 3;
+    }
+    .carousel-item {
+        img {
+            margin-bottom: 20px;
+        }
+        h4 {
+            text-transform: uppercase;
+            margin-bottom: 0;
+        }
+        span {
+            color: rgb(184, 184, 184)
+        }
+        p {
+            @extend %paragraph-style;
+            margin-top: 40px;
+            line-height: 1.6;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+        }
+    }
+}
+// End Testimonials
+
+
+// Start pricing table
+.pricing-table {
+    background-color: #f7f7f7;
+    padding: $paddingTop;
+
+    h2 { 
+        @extend %h2-style;
+        @media (max-width: 992px) {
+            font-size: 30px;
+            padding-bottom: 10px;
+        }
+    }
+    p { 
+        @extend %paragraph-style;
+        @media (max-width: 992px) {
+            width: 90%;
+            letter-spacing: 1;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+    }
+    .pricing-item {
+        margin-top: 50px;
+        .item {
+            background-color: #ffffff;
+            padding: 20px 0px;
+            margin-left: 30px;
+            -webkit-box-shadow: 0 0 12px 0 rgba(130, 121, 121, .2);
+            -moz-box-shadow: 0 0 12px 0 rgba(130, 121, 121, .2);
+            -o-box-shadow: 0 0 12px 0 rgba(130, 121, 121, .2);
+            box-shadow: 0 0 12px 0 rgba(130, 121, 121, .2);
+            &:hover {
+               @extend %trans-table-price;
+            }
+            h4 {
+                color: $mainColor;
+                padding-top: 20px;
+                span {
+                    font-weight: 400;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                }
+            }
+            .price {
+                background-color: #f7f7f7;
+                @extend %price;
+            }
+            .best-price{  
+                color: #ffffff;
+                background-color: $secondColor;
+                @extend %price;
+            }
+            .pricing-type {
+                color: $fontColorPar;
+            }
+            li {
+                padding-bottom: 15px;
+                color: #555;
+            }
+            button {
+                @extend %btn-style;
+                @extend %transition;
+                margin: 40px 0px;
+                padding: 10px 40px;
+                font-size: 18px; 
+            }
+
+            @media (max-width: 576px) {
+                padding: 0px 15px;
+                margin: 20px 15px 0 15px;
+            }
+        }
+    }
+}
+// End pricing table
+
+// Start Choose Us
+.choose-us {  
+    .row {
+        margin: 0;
+    }
+    .image {
+        min-height: 350px;
+        background-size: cover;
+        padding: 0;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    .choose-us-par {
+        background-color: $mainColor;
+        padding: 125px 0;
+        @media (max-width: 992px) {
+            padding: 50px 0;
+        }
+        h2 {
+           @extend %h2-style; 
+           text-align: left;
+           color: #ffffff;
+           padding: 0px 0 0 20px;
+        }
+        p {
+            color: #e2e2e2;
+            padding: 25px 0 0 20px;
+            letter-spacing: 2px;
+            line-height: 1.7;
+        }
+        button {
+            @extend %btn-style;
+            @extend %transition;
+            margin: 40px 0 0 20px ;
+            padding: 10px 40px;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+    }
+}
+// End Choose Us
+
+// Start State
+.state {
+    padding: $paddingTop;
+    @media (max-width: 992px) {
+        padding: 50px 0;
+    }
+    i {
+        width: 100%;
+        margin-bottom: 10px;
+        color: $mainColor;
+        font-size: 30px;
+    }
+    span {
+        color: $mainColor;
+    }
+    div {
+        padding-top: 5px;
+        color: $secondColor;
+        @media (max-width: 992px) {
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+// End State
+
+// Start Contact Us
+.contact-us {
+    background-color: $secondColor;
+    color: #ffffff;
+    padding: 75px 0;
+    p {
+        padding-left: 20px;
+        font-size: 25px;
+        line-height: 1.8;
+        letter-spacing: 1.5px;
+    }
+    button {
+        
+        @extend %btn-style;
+        border: 3px solid #ffffff;
+        padding: 10px 40px;
+        &:hover {
+            border: 3px solid $mainColor;
+        }
+    }
+}
+// End Contact Us
+
+// Start Footer
+footer {
+    background-color: #f7f7f7;
+    padding-top: 100px;
+    @media (max-width: 992px) {
+        padding-top: 50px;
+    }
+    .info {
+        span {
+            font-size: 40px;  
+            &:first-child {
+                color:$mainColor;
+                font-weight: 600;
+            }    
+            &:last-child {
+                color: $secondColor;
+                font-weight: 350;
+            }
+        }
+        a {
+            @extend %transition;
+            &:hover{
+                color: $secondColor;
+                text-decoration: none;
+                @extend %transition;
+            }
+        }
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+        }
+    }
+    .footer-widget {
+        width: 100%;
+        float: left;
+        margin-bottom: 50px;
+        color: $mainColor;
+        h4 {
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            @media (max-width: 768px) {
+                margin-bottom: 20px;
+            }
+        }
+        .link-box {
+           ul{
+               width: 50%;
+               float: left;
+               margin-top: 10px;
+               li {
+                   margin-bottom: 20px;
+                   @extend %transition;
+                   &:hover {
+                       color: $secondColor;
+                       @extend %transition;
+                       @extend %transition;
+                    }
+               }
+           } 
+        }
+        @media (max-width: 768px) {
+            margin-bottom: 10px;
+        }
+    }
+    .contact {
+        width: 100%;
+        float: left;
+        margin-bottom: 50px;
+        h4 {
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            color: $mainColor;
+            @media (max-width: 768px) {
+                margin-bottom: 20px;
+            }
+        }
+        p {
+            a {
+                color: $mainColor;
+                text-decoration: none;
+                @extend %transition;
+                &:hover {
+                    color: $secondColor;
+                    @extend %transition;
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            margin-bottom: 0px;
+        }
+    }
+
+    .copy-right {
+        p {
+            color:$fontColorPar;
+            font-size: 14px;
+
+        }
+        .social-media {
+            a {
+                padding-left: 25px;
+                color:$fontColorPar;
+                float: right;
+                @extend %transition;
+                &:hover {
+                    color: $secondColor;
+                    @extend %transition;
+                }
+                @media (max-width: 768px) {
+                    float: left;
+                    padding-left: 20%;
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                }
+                @media (max-width: 360px) {
+                    padding-left: 19%;
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                }
+
+            }
+            i {
+                font-size: 20px;
+                @media (max-width: 768px) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+}
+// End Footer
